@@ -1,0 +1,459 @@
+body {
+  background-color: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  resize: none; /* disable manual resizing */
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  user-select: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.btn-primary:focus {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.message-list {
+  margin-top: 2rem;
+}
+
+.message-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.message-list li {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  background-color: #f8f9fa;
+}
+
+.user-message,
+.chatgpt-message {
+  display: inline;
+  white-space: pre-wrap;
+  font-family: monospace;
+  margin: 0;
+}
+
+.user-message,
+.chatgpt-message,
+.user-code,
+.chatgpt-code {
+  display: inline;
+  white-space: pre-wrap;
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.user-message,
+.chatgpt-message {
+  font-family: monospace;
+}
+
+.chatgpt-message {
+  color: #007bff;
+}
+
+.chatgpt-code {
+  color: #007bff;
+}
+
+.icon-container {
+  display: inline-block;
+}
+
+.icon {
+  font-size: 1rem;
+  float: left;
+  margin-right: 0.5rem;
+}
+
+.user-message,
+.chatgpt-message {
+  display: inline-block;
+  max-width: 80%;
+}
+
+.user-message p,
+.chatgpt-message p {
+  margin: 0;
+}
+
+
+
+.conversations-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 15%;
+  height: 100%;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+.conversations-list h3 {
+  margin-bottom: 1rem;
+}
+
+.conversations-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.conversations-list li {
+  display: flex;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.conversations-list li:hover {
+  background-color: #e9ecef;
+}
+
+
+.selected-conversation {
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+}
+
+.delete-icon {
+  color: #007bff;
+  margin-left: 10px;
+  cursor: pointer;
+  
+}
+.delete-icon:hover{
+  color: #0056b3;
+}
+
+.new-conversation-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.new-conversation-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.new-conversation-button-container {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.main-container {
+  display: flex;
+  height: 100%;
+}
+
+.conversation-list-container {
+  max-width: 15%;
+  width: 100%;
+  height: 100%;
+}
+
+.message-list-container {
+  flex: 1;
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message-list-container > * {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.new-conversation-button {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.rename-input {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin-right: 5px;
+}
+
+.edit-icon,
+.save-icon {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.edit-icon:hover,
+.save-icon:hover {
+  color: #0056b3;
+}
+
+.conversation-actions {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.code-block {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* You can adjust this value to set the maximum width of the code box */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  margin-bottom: 10px;
+}
+
+.copy-code-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #f5f5f5;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+}
+
+
+.copy-code-btn:hover {
+  color: #0056b3;
+}
+
+.code-language {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.conversation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.action-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Add this CSS rule */
+.conversation-import-export {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: auto;
+  padding: 0.5rem 0;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.import-conversations,
+.export-conversations {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.import-conversations:hover,
+.export-conversations:hover {
+  color: #0056b3;
+}
+
+.import-export-text {
+  font-size: 0.9rem;
+  margin-left: 0.3rem;
+}
+
+.hisoty-title{
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* App.css */
+
+.toggle-conversation-list {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #007bff;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.toggle-conversation-list:hover,
+.toggle-conversation-list:focus {
+  color: #0056b3;
+}
+
+.main-container {
+  display: flex;
+  height: 100%;
+}
+
+/* ... other CSS code ... */
+
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .conversation-list-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .conversations-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    z-index: 1;
+  }
+
+  .toggle-conversation-list {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .message-list-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .toggle-conversation-list:hover,
+  .toggle-conversation-list:focus {
+    background: #007bff;
+    color: white;
+  }
+}
