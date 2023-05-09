@@ -10,7 +10,7 @@ CORS(app)  # Enable CORS for your Flask app and specify allowed origins
 #CORS(app, origins=['http://your_frontend_domain.com'])
 
 openai.api_type = "azure"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "Your model version" 
 openai.api_base = "Your Azure OpenAI resource's endpoint value" 
 openai.api_key = "Your Azure OpenAI resource's key value." 
 deployment_name = "Your Deployment name"
